@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Писмо и сърце с фиксиран текст</title>
+    <style>
+        /* Основен стил за фона */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+
+        /* Писмо */
+        .letter {
+            width: 250px;
+            height: 180px;
+            background-color: white;
+            border: 2px solid #ff4d4d;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: opacity 0.5s;
+            font-size: 18px;
+            color: #ff4d4d;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Стил за допълнителния текст над основния */
+        .letter h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #ff4d4d;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        /* Скриване на писмото и показване на сърцето */
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Сърце със запълване */
+        .heart {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: #ff4d4d;
+            transform: rotate(-45deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            border-radius: 15px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -150px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 150px;
+            top: 0;
+        }
+
+        /* Показване на сърцето */
+        .show-heart {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Бял правоъгълник за текста в сърцето */
+        .heart-text-box {
+            position: absolute;
+            background-color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ff4d4d;
+            font-size: 18px;
+            line-height: 1.4;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px; /* Задайте ширина */
+            height: auto; /* Автоматично настройване на височината */
+            top: 40%; /* Центриране вертикално */
+            left: 50%; /* Центриране хоризонтално */
+            transform: translate(-25%, -70%) rotate(45deg); /* Центрирайте и завъртете правоъгълника */
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Писмо с фиксиран текст -->
+    <div class="letter" id="letter" onclick="showHeart()">
+        <h2>За моята любов❤️</h2>
+        <p>Ти си светлината в живота ми</p>
+    </div>
+
+    <!-- Сърце със запълване и бял правоъгълник с текст в средата -->
+    <div class="heart" id="heart">
+        <div class="heart-text-box">
+            Не бих могъл да ти опиша<br>колко много те обичам!!!<br>
+            Няма и думи с които бих го сторил, но знай,<br>
+            че всичко което го правя е от сърце.
+        </div>
+    </div>
+
+    <script>
+        function showHeart() {
+            // Скриване на писмото и показване на сърцето и текста върху него
+            document.getElementById('letter').classList.add('hidden');
+            document.getElementById('heart').classList.add('show-heart');
+        }
+    </script>
+
+</body>
+</html>

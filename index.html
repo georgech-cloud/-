@@ -38,6 +38,18 @@
             position: relative;
         }
 
+        /* Малки сърца около писмото */
+        .small-heart {
+            position: absolute;
+            color: #ff4d4d;
+            font-size: 20px;
+        }
+
+        .heart1 { top: -20px; left: -20px; }
+        .heart2 { top: -20px; right: -20px; }
+        .heart3 { bottom: -20px; left: -20px; }
+        .heart4 { bottom: -20px; right: -20px; }
+
         /* Стил за допълнителния текст над основния */
         .letter h2 {
             margin: 0;
@@ -117,8 +129,12 @@
 </head>
 <body>
 
-    <!-- Писмо с фиксиран текст -->
+    <!-- Малки сърца около писмото -->
     <div class="letter" id="letter" onclick="showHeart()">
+        <div class="small-heart heart1">❤️</div>
+        <div class="small-heart heart2">❤️</div>
+        <div class="small-heart heart3">❤️</div>
+        <div class="small-heart heart4">❤️</div>
         <h2>За моята любов❤️</h2>
         <p>Ти си светлината в живота ми</p>
     </div>
